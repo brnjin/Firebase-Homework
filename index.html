@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase assignment</title>
+	<!-- reset to default -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<!-- Compiled and minified CSS -->
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<!-- firebase link -->
+  	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  	<script  src="https://code.jquery.com/jquery-3.2.1.slim.js"  integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="  crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron" id="tagline"><center>
+	    <h1>HEADER JUMBO</h1> 
+	    </center>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+	    <ul class="collection with-header">
+			<li class="collection-header"><h4>Current Train Schedule</h4></li>
+				 <table class="table">
+					<thead>
+						<tr>
+							<th><strong>Train Name</strong></th>
+							<th><strong>Destination</strong></th>
+							<th><strong>Frequency (min)</strong></th>
+							<th><strong>Next arrival</strong></th>
+							<th><strong>Minutes Away</strong></th>
+						</tr>
+					</thead>
+					<tbody id="data-display">
+
+					</tbody>
+				</table>
+		</ul>
+	</div>
+	<div class="row">		
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Add Train</h4></li>
+            <form role="form">
+              <div class="form-group Add-train">
+                <label for="train-input">Train Name</label>
+                <input class="form-control" id="train-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="destination-input">Destination</label>
+                <input class="form-control" id="destination-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="time-input">First Train Time (HH:mm - military time ex. 19:00 for 7:00PM)</label>
+                <input class="form-control" id="time-input" type="time">
+              </div>
+              <div class="form-group">
+                <label for="frequency-input">Frequency</label>
+                <input class="form-control" id="frequency-input" rows="5"></input>
+              </div>
+              <button class="btn btn-default" id="add-train" type="submit">Submit</button>
+            </form>
+      </ul>
+	</div>
+</div>
+<script src="javascript/game.js"></script>
+</body>
+</html>
