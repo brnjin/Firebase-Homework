@@ -1,8 +1,41 @@
+body {
+	background-image: url(../images/trainTracks.jpg);
+}
+.row {
+	background-color: white;
+	background: rgba(255, 255, 255, 0.95);
+}
 label {
 	color:black;
 	font-weight: bolder;
 }
+
 .form-group {
 	margin-top: 20px;
 
+}
+#heading {
+	background-color: transparent;
+	border-bottom-width: 2px;
+	border-bottom-color: darkgrey;
+	padding-left: 5px;
+}
+label {
+	padding-left: 5px;
+}
+#train-input {
+	padding-left: 5px;
+}
+#destination-input {
+	padding-left: 5px;
+}
+#time-input {
+	padding-left: 5px;
+}
+#frequency-input {
+	padding-left: 5px;
+}
+
+h4 {
+	font-weight: bolder;
 }
