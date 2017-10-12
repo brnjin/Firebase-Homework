@@ -9,13 +9,16 @@
   	<link rel="stylesheet" type="text/css" href="css/style.css">
   	<!-- firebase link -->
   	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  	<!-- Jquery cdn -->
   	<script  src="https://code.jquery.com/jquery-3.2.1.slim.js"  integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="  crossorigin="anonymous"></script>
+  	<!-- Moment.js link -->
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 <body>
 <div class="container">
 	<div class="jumbotron" id="tagline"><center>
-	    <h1>HEADER JUMBO</h1> 
+	    <h1>Anytime is Train Time</h1> 
 	    </center>
 	</div>
 </div>
@@ -23,7 +26,7 @@
 	<div class="row">
 	    <ul class="collection with-header">
 			<li class="collection-header"><h4>Current Train Schedule</h4></li>
-				 <table class="table">
+				 <table class="table"  id="data-display">
 					<thead>
 						<tr>
 							<th><strong>Train Name</strong></th>
@@ -33,7 +36,7 @@
 							<th><strong>Minutes Away</strong></th>
 						</tr>
 					</thead>
-					<tbody id="data-display">
+					<tbody>
 
 					</tbody>
 				</table>
@@ -52,11 +55,11 @@
                 <input class="form-control" id="destination-input" type="text">
               </div>
               <div class="form-group">
-                <label for="time-input">First Train Time (HH:mm - military time ex. 19:00 for 7:00PM)</label>
-                <input class="form-control" id="time-input" type="time">
+                <label for="time-input">First Train Time (HH:mm - military time)</label>
+                <input class="form-control" id="time-input" type="text">
               </div>
               <div class="form-group">
-                <label for="frequency-input">Frequency</label>
+                <label for="frequency-input">Frequency(min)</label>
                 <input class="form-control" id="frequency-input" rows="5"></input>
               </div>
               <button class="btn btn-default" id="add-train" type="submit">Submit</button>
