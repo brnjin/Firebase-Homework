@@ -9,11 +9,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
+//Easier access to data in firebase
 var database = firebase.database();
 
+//On click function to get user input 
 $("#add-train").on("click", function(event) {
 	event.preventDefault();
-
+	//variables to save user input
 	var trainName = $('#train-input').val();
 	var trainDestination = $('#destination-input').val();
 	trainTime = $('#time-input').val();
@@ -21,6 +23,7 @@ $("#add-train").on("click", function(event) {
 
 	console.log(trainName);
 
+	//Object variable to save data into firebase
 	var newTrain = {
 		name: trainName,
 		destination: trainDestination,
@@ -28,13 +31,17 @@ $("#add-train").on("click", function(event) {
 		frequency: trainFrequency
 	};
 
+	//pushing up the object variable to firebase
 	database.ref().push(newTrain);
 
+	//Clears the input data 
 	$('#train-input').val("");
 	$('#destination-input').val("");
 	$('#time-input').val("");
 	$('#frequency-input').val("");
 });
+
+//gets the data from firebase and saves it into a variable
 database.ref().on("child_added", function(childsnapshot){
 	console.log(childsnapshot.val());
 	var trainName = childsnapshot.val().name;
@@ -43,6 +50,7 @@ database.ref().on("child_added", function(childsnapshot){
 	var trainFrequency = childsnapshot.val().frequency;
 	console.log(trainFrequency + "Here");
 
+	//variables to set up for the time calculations
 	var tFrequency = trainFrequency;
 	var firstTime = trainTime;
 	// First Time (pushed back 1 year to make sure it comes before current time)
@@ -68,6 +76,7 @@ database.ref().on("child_added", function(childsnapshot){
 	var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 	console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 	
+	//displays the data from firebase into table by using tr and td tags
 	$('#data-display > tbody').append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td><td>");
 })
 
